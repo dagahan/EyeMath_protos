@@ -36,7 +36,7 @@ func NewGRPCMathSolveClient(cc grpc.ClientConnInterface) GRPCMathSolveClient {
 
 func (c *gRPCMathSolveClient) Metadata(ctx context.Context, in *MetadataRequest, opts ...grpc.CallOption) (*MetadataResponse, error) {
 	out := new(MetadataResponse)
-	err := c.cc.Invoke(ctx, "/mathsolve.gRPC_math_solve/Metadata", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/mathsolve.GRPC_math_solve/Metadata", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -45,7 +45,7 @@ func (c *gRPCMathSolveClient) Metadata(ctx context.Context, in *MetadataRequest,
 
 func (c *gRPCMathSolveClient) Solve(ctx context.Context, in *SolveRequest, opts ...grpc.CallOption) (*SolveResponse, error) {
 	out := new(SolveResponse)
-	err := c.cc.Invoke(ctx, "/mathsolve.gRPC_math_solve/Solve", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/mathsolve.GRPC_math_solve/Solve", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +94,7 @@ func _GRPCMathSolve_Metadata_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/mathsolve.gRPC_math_solve/Metadata",
+		FullMethod: "/mathsolve.GRPC_math_solve/Metadata",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GRPCMathSolveServer).Metadata(ctx, req.(*MetadataRequest))
@@ -112,7 +112,7 @@ func _GRPCMathSolve_Solve_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/mathsolve.gRPC_math_solve/Solve",
+		FullMethod: "/mathsolve.GRPC_math_solve/Solve",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GRPCMathSolveServer).Solve(ctx, req.(*SolveRequest))
@@ -124,7 +124,7 @@ func _GRPCMathSolve_Solve_Handler(srv interface{}, ctx context.Context, dec func
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var GRPCMathSolve_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mathsolve.gRPC_math_solve",
+	ServiceName: "mathsolve.GRPC_math_solve",
 	HandlerType: (*GRPCMathSolveServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
