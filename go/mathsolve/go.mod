@@ -1,4 +1,4 @@
-module mathsolve
+module github.com/dagahan/EyeMath_protos/go/mathsolve
 
 go 1.24.2
 
