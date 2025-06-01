@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class gRPC_math_solveStub(object):
+class GRPC_math_solveStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -35,18 +35,18 @@ class gRPC_math_solveStub(object):
             channel: A grpc.Channel.
         """
         self.Metadata = channel.unary_unary(
-                '/mathsolve.gRPC_math_solve/Metadata',
+                '/mathsolve.GRPC_math_solve/Metadata',
                 request_serializer=service__math__solve__pb2.MetadataRequest.SerializeToString,
                 response_deserializer=service__math__solve__pb2.MetadataResponse.FromString,
                 _registered_method=True)
         self.Solve = channel.unary_unary(
-                '/mathsolve.gRPC_math_solve/Solve',
+                '/mathsolve.GRPC_math_solve/Solve',
                 request_serializer=service__math__solve__pb2.SolveRequest.SerializeToString,
                 response_deserializer=service__math__solve__pb2.SolveResponse.FromString,
                 _registered_method=True)
 
 
-class gRPC_math_solveServicer(object):
+class GRPC_math_solveServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def Metadata(self, request, context):
@@ -62,7 +62,7 @@ class gRPC_math_solveServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_gRPC_math_solveServicer_to_server(servicer, server):
+def add_GRPC_math_solveServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Metadata': grpc.unary_unary_rpc_method_handler(
                     servicer.Metadata,
@@ -76,13 +76,13 @@ def add_gRPC_math_solveServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'mathsolve.gRPC_math_solve', rpc_method_handlers)
+            'mathsolve.GRPC_math_solve', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('mathsolve.gRPC_math_solve', rpc_method_handlers)
+    server.add_registered_method_handlers('mathsolve.GRPC_math_solve', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class gRPC_math_solve(object):
+class GRPC_math_solve(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -99,7 +99,7 @@ class gRPC_math_solve(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/mathsolve.gRPC_math_solve/Metadata',
+            '/mathsolve.GRPC_math_solve/Metadata',
             service__math__solve__pb2.MetadataRequest.SerializeToString,
             service__math__solve__pb2.MetadataResponse.FromString,
             options,
@@ -126,7 +126,7 @@ class gRPC_math_solve(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/mathsolve.gRPC_math_solve/Solve',
+            '/mathsolve.GRPC_math_solve/Solve',
             service__math__solve__pb2.SolveRequest.SerializeToString,
             service__math__solve__pb2.SolveResponse.FromString,
             options,
