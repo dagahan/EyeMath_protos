@@ -13,11 +13,14 @@ message meta_data_solve_response {
 
 
 message solve_request {
-  string expression = 1;
+  string latex_expression = 1;
+  bool show_solving_steps = 2;
+  bool render_latex_expressions = 3;
 }
 
 message solve_response {
-  string result = 1; 
+  repeated string results = 1; 
+  repeated string solving_steps = 2;
 }
 
 
