@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import service_math_recognize_pb2 as service__math__recognize__pb2
+from protos import service_math_recognize_pb2 as protos_dot_service__math__recognize__pb2
 
 GRPC_GENERATED_VERSION = '1.72.1'
 GRPC_VERSION = grpc.__version__
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in service_math_recognize_pb2_grpc.py depends on'
+        + f' but the generated code in protos/service_math_recognize_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -36,18 +36,18 @@ class GRPCMathRecognizeStub(object):
         """
         self.meta_data_recognize = channel.unary_unary(
                 '/mathrecognize.GRPCMathRecognize/meta_data_recognize',
-                request_serializer=service__math__recognize__pb2.meta_data_recognize_request.SerializeToString,
-                response_deserializer=service__math__recognize__pb2.meta_data_recognize_response.FromString,
+                request_serializer=protos_dot_service__math__recognize__pb2.meta_data_recognize_request.SerializeToString,
+                response_deserializer=protos_dot_service__math__recognize__pb2.meta_data_recognize_response.FromString,
                 _registered_method=True)
         self.recognize = channel.unary_unary(
                 '/mathrecognize.GRPCMathRecognize/recognize',
-                request_serializer=service__math__recognize__pb2.recognize_request.SerializeToString,
-                response_deserializer=service__math__recognize__pb2.recognize_response.FromString,
+                request_serializer=protos_dot_service__math__recognize__pb2.recognize_request.SerializeToString,
+                response_deserializer=protos_dot_service__math__recognize__pb2.recognize_response.FromString,
                 _registered_method=True)
         self.normalize_for_sympy = channel.unary_unary(
                 '/mathrecognize.GRPCMathRecognize/normalize_for_sympy',
-                request_serializer=service__math__recognize__pb2.normalize_for_sympy_request.SerializeToString,
-                response_deserializer=service__math__recognize__pb2.normalize_for_sympy_response.FromString,
+                request_serializer=protos_dot_service__math__recognize__pb2.normalize_for_sympy_request.SerializeToString,
+                response_deserializer=protos_dot_service__math__recognize__pb2.normalize_for_sympy_response.FromString,
                 _registered_method=True)
 
 
@@ -77,18 +77,18 @@ def add_GRPCMathRecognizeServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'meta_data_recognize': grpc.unary_unary_rpc_method_handler(
                     servicer.meta_data_recognize,
-                    request_deserializer=service__math__recognize__pb2.meta_data_recognize_request.FromString,
-                    response_serializer=service__math__recognize__pb2.meta_data_recognize_response.SerializeToString,
+                    request_deserializer=protos_dot_service__math__recognize__pb2.meta_data_recognize_request.FromString,
+                    response_serializer=protos_dot_service__math__recognize__pb2.meta_data_recognize_response.SerializeToString,
             ),
             'recognize': grpc.unary_unary_rpc_method_handler(
                     servicer.recognize,
-                    request_deserializer=service__math__recognize__pb2.recognize_request.FromString,
-                    response_serializer=service__math__recognize__pb2.recognize_response.SerializeToString,
+                    request_deserializer=protos_dot_service__math__recognize__pb2.recognize_request.FromString,
+                    response_serializer=protos_dot_service__math__recognize__pb2.recognize_response.SerializeToString,
             ),
             'normalize_for_sympy': grpc.unary_unary_rpc_method_handler(
                     servicer.normalize_for_sympy,
-                    request_deserializer=service__math__recognize__pb2.normalize_for_sympy_request.FromString,
-                    response_serializer=service__math__recognize__pb2.normalize_for_sympy_response.SerializeToString,
+                    request_deserializer=protos_dot_service__math__recognize__pb2.normalize_for_sympy_request.FromString,
+                    response_serializer=protos_dot_service__math__recognize__pb2.normalize_for_sympy_response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -116,8 +116,8 @@ class GRPCMathRecognize(object):
             request,
             target,
             '/mathrecognize.GRPCMathRecognize/meta_data_recognize',
-            service__math__recognize__pb2.meta_data_recognize_request.SerializeToString,
-            service__math__recognize__pb2.meta_data_recognize_response.FromString,
+            protos_dot_service__math__recognize__pb2.meta_data_recognize_request.SerializeToString,
+            protos_dot_service__math__recognize__pb2.meta_data_recognize_response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -143,8 +143,8 @@ class GRPCMathRecognize(object):
             request,
             target,
             '/mathrecognize.GRPCMathRecognize/recognize',
-            service__math__recognize__pb2.recognize_request.SerializeToString,
-            service__math__recognize__pb2.recognize_response.FromString,
+            protos_dot_service__math__recognize__pb2.recognize_request.SerializeToString,
+            protos_dot_service__math__recognize__pb2.recognize_response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -170,8 +170,8 @@ class GRPCMathRecognize(object):
             request,
             target,
             '/mathrecognize.GRPCMathRecognize/normalize_for_sympy',
-            service__math__recognize__pb2.normalize_for_sympy_request.SerializeToString,
-            service__math__recognize__pb2.normalize_for_sympy_response.FromString,
+            protos_dot_service__math__recognize__pb2.normalize_for_sympy_request.SerializeToString,
+            protos_dot_service__math__recognize__pb2.normalize_for_sympy_response.FromString,
             options,
             channel_credentials,
             insecure,
