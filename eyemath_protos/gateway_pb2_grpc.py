@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-from protos import gateway_pb2 as protos_dot_gateway__pb2
+import gateway_pb2 as gateway__pb2
 
 GRPC_GENERATED_VERSION = '1.72.1'
 GRPC_VERSION = grpc.__version__
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in protos/gateway_pb2_grpc.py depends on'
+        + f' but the generated code in gateway_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -36,18 +36,18 @@ class ExternalApiGatewayStub(object):
         """
         self.register = channel.unary_unary(
                 '/gateway.ExternalApiGateway/register',
-                request_serializer=protos_dot_gateway__pb2.register_request.SerializeToString,
-                response_deserializer=protos_dot_gateway__pb2.register_response.FromString,
+                request_serializer=gateway__pb2.register_request.SerializeToString,
+                response_deserializer=gateway__pb2.register_response.FromString,
                 _registered_method=True)
         self.login = channel.unary_unary(
                 '/gateway.ExternalApiGateway/login',
-                request_serializer=protos_dot_gateway__pb2.login_request.SerializeToString,
-                response_deserializer=protos_dot_gateway__pb2.login_response.FromString,
+                request_serializer=gateway__pb2.login_request.SerializeToString,
+                response_deserializer=gateway__pb2.login_response.FromString,
                 _registered_method=True)
         self.is_admin = channel.unary_unary(
                 '/gateway.ExternalApiGateway/is_admin',
-                request_serializer=protos_dot_gateway__pb2.is_admin_request.SerializeToString,
-                response_deserializer=protos_dot_gateway__pb2.is_admin_response.FromString,
+                request_serializer=gateway__pb2.is_admin_request.SerializeToString,
+                response_deserializer=gateway__pb2.is_admin_response.FromString,
                 _registered_method=True)
 
 
@@ -77,18 +77,18 @@ def add_ExternalApiGatewayServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'register': grpc.unary_unary_rpc_method_handler(
                     servicer.register,
-                    request_deserializer=protos_dot_gateway__pb2.register_request.FromString,
-                    response_serializer=protos_dot_gateway__pb2.register_response.SerializeToString,
+                    request_deserializer=gateway__pb2.register_request.FromString,
+                    response_serializer=gateway__pb2.register_response.SerializeToString,
             ),
             'login': grpc.unary_unary_rpc_method_handler(
                     servicer.login,
-                    request_deserializer=protos_dot_gateway__pb2.login_request.FromString,
-                    response_serializer=protos_dot_gateway__pb2.login_response.SerializeToString,
+                    request_deserializer=gateway__pb2.login_request.FromString,
+                    response_serializer=gateway__pb2.login_response.SerializeToString,
             ),
             'is_admin': grpc.unary_unary_rpc_method_handler(
                     servicer.is_admin,
-                    request_deserializer=protos_dot_gateway__pb2.is_admin_request.FromString,
-                    response_serializer=protos_dot_gateway__pb2.is_admin_response.SerializeToString,
+                    request_deserializer=gateway__pb2.is_admin_request.FromString,
+                    response_serializer=gateway__pb2.is_admin_response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -116,8 +116,8 @@ class ExternalApiGateway(object):
             request,
             target,
             '/gateway.ExternalApiGateway/register',
-            protos_dot_gateway__pb2.register_request.SerializeToString,
-            protos_dot_gateway__pb2.register_response.FromString,
+            gateway__pb2.register_request.SerializeToString,
+            gateway__pb2.register_response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -143,8 +143,8 @@ class ExternalApiGateway(object):
             request,
             target,
             '/gateway.ExternalApiGateway/login',
-            protos_dot_gateway__pb2.login_request.SerializeToString,
-            protos_dot_gateway__pb2.login_response.FromString,
+            gateway__pb2.login_request.SerializeToString,
+            gateway__pb2.login_response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -170,8 +170,8 @@ class ExternalApiGateway(object):
             request,
             target,
             '/gateway.ExternalApiGateway/is_admin',
-            protos_dot_gateway__pb2.is_admin_request.SerializeToString,
-            protos_dot_gateway__pb2.is_admin_response.FromString,
+            gateway__pb2.is_admin_request.SerializeToString,
+            gateway__pb2.is_admin_response.FromString,
             options,
             channel_credentials,
             insecure,

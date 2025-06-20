@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-from protos import service_math_solve_pb2 as protos_dot_service__math__solve__pb2
+import service_math_solve_pb2 as service__math__solve__pb2
 
 GRPC_GENERATED_VERSION = '1.72.1'
 GRPC_VERSION = grpc.__version__
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in protos/service_math_solve_pb2_grpc.py depends on'
+        + f' but the generated code in service_math_solve_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -36,13 +36,13 @@ class GRPCMathSolveStub(object):
         """
         self.meta_data_solve = channel.unary_unary(
                 '/mathsolve.GRPCMathSolve/meta_data_solve',
-                request_serializer=protos_dot_service__math__solve__pb2.meta_data_solve_request.SerializeToString,
-                response_deserializer=protos_dot_service__math__solve__pb2.meta_data_solve_response.FromString,
+                request_serializer=service__math__solve__pb2.meta_data_solve_request.SerializeToString,
+                response_deserializer=service__math__solve__pb2.meta_data_solve_response.FromString,
                 _registered_method=True)
         self.solve = channel.unary_unary(
                 '/mathsolve.GRPCMathSolve/solve',
-                request_serializer=protos_dot_service__math__solve__pb2.solve_request.SerializeToString,
-                response_deserializer=protos_dot_service__math__solve__pb2.solve_response.FromString,
+                request_serializer=service__math__solve__pb2.solve_request.SerializeToString,
+                response_deserializer=service__math__solve__pb2.solve_response.FromString,
                 _registered_method=True)
 
 
@@ -66,13 +66,13 @@ def add_GRPCMathSolveServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'meta_data_solve': grpc.unary_unary_rpc_method_handler(
                     servicer.meta_data_solve,
-                    request_deserializer=protos_dot_service__math__solve__pb2.meta_data_solve_request.FromString,
-                    response_serializer=protos_dot_service__math__solve__pb2.meta_data_solve_response.SerializeToString,
+                    request_deserializer=service__math__solve__pb2.meta_data_solve_request.FromString,
+                    response_serializer=service__math__solve__pb2.meta_data_solve_response.SerializeToString,
             ),
             'solve': grpc.unary_unary_rpc_method_handler(
                     servicer.solve,
-                    request_deserializer=protos_dot_service__math__solve__pb2.solve_request.FromString,
-                    response_serializer=protos_dot_service__math__solve__pb2.solve_response.SerializeToString,
+                    request_deserializer=service__math__solve__pb2.solve_request.FromString,
+                    response_serializer=service__math__solve__pb2.solve_response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -100,8 +100,8 @@ class GRPCMathSolve(object):
             request,
             target,
             '/mathsolve.GRPCMathSolve/meta_data_solve',
-            protos_dot_service__math__solve__pb2.meta_data_solve_request.SerializeToString,
-            protos_dot_service__math__solve__pb2.meta_data_solve_response.FromString,
+            service__math__solve__pb2.meta_data_solve_request.SerializeToString,
+            service__math__solve__pb2.meta_data_solve_response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -127,8 +127,8 @@ class GRPCMathSolve(object):
             request,
             target,
             '/mathsolve.GRPCMathSolve/solve',
-            protos_dot_service__math__solve__pb2.solve_request.SerializeToString,
-            protos_dot_service__math__solve__pb2.solve_response.FromString,
+            service__math__solve__pb2.solve_request.SerializeToString,
+            service__math__solve__pb2.solve_response.FromString,
             options,
             channel_credentials,
             insecure,
