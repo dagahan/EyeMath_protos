@@ -15,7 +15,7 @@ classifiers = [
 ]
 
 [tool.setuptools]
-packages = ["eyemath_protos"]
+packages = ["proto"]
 
 [project.urls]
 "Homepage" = "https://github.com/dagahan/EyeMath_protos"
