@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import service_math_render_pb2 as service__math__render__pb2
+from . import service_math_solve_pb2 as service__math__solve__pb2
 
 GRPC_GENERATED_VERSION = '1.72.1'
 GRPC_VERSION = grpc.__version__
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in service_math_render_pb2_grpc.py depends on'
+        + f' but the generated code in service_math_solve_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class GRPCMathRenderStub(object):
+class GRPCMathSolveStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -34,59 +34,59 @@ class GRPCMathRenderStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.meta_data_render = channel.unary_unary(
-                '/mathrender.GRPCMathRender/meta_data_render',
-                request_serializer=service__math__render__pb2.meta_data_render_request.SerializeToString,
-                response_deserializer=service__math__render__pb2.meta_data_render_response.FromString,
+        self.meta_data_solve = channel.unary_unary(
+                '/mathsolve.GRPCMathSolve/meta_data_solve',
+                request_serializer=service__math__solve__pb2.meta_data_solve_request.SerializeToString,
+                response_deserializer=service__math__solve__pb2.meta_data_solve_response.FromString,
                 _registered_method=True)
-        self.render_latex = channel.unary_unary(
-                '/mathrender.GRPCMathRender/render_latex',
-                request_serializer=service__math__render__pb2.render_latex_request.SerializeToString,
-                response_deserializer=service__math__render__pb2.render_latex_response.FromString,
+        self.solve = channel.unary_unary(
+                '/mathsolve.GRPCMathSolve/solve',
+                request_serializer=service__math__solve__pb2.solve_request.SerializeToString,
+                response_deserializer=service__math__solve__pb2.solve_response.FromString,
                 _registered_method=True)
 
 
-class GRPCMathRenderServicer(object):
+class GRPCMathSolveServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def meta_data_render(self, request, context):
+    def meta_data_solve(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def render_latex(self, request, context):
+    def solve(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_GRPCMathRenderServicer_to_server(servicer, server):
+def add_GRPCMathSolveServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'meta_data_render': grpc.unary_unary_rpc_method_handler(
-                    servicer.meta_data_render,
-                    request_deserializer=service__math__render__pb2.meta_data_render_request.FromString,
-                    response_serializer=service__math__render__pb2.meta_data_render_response.SerializeToString,
+            'meta_data_solve': grpc.unary_unary_rpc_method_handler(
+                    servicer.meta_data_solve,
+                    request_deserializer=service__math__solve__pb2.meta_data_solve_request.FromString,
+                    response_serializer=service__math__solve__pb2.meta_data_solve_response.SerializeToString,
             ),
-            'render_latex': grpc.unary_unary_rpc_method_handler(
-                    servicer.render_latex,
-                    request_deserializer=service__math__render__pb2.render_latex_request.FromString,
-                    response_serializer=service__math__render__pb2.render_latex_response.SerializeToString,
+            'solve': grpc.unary_unary_rpc_method_handler(
+                    servicer.solve,
+                    request_deserializer=service__math__solve__pb2.solve_request.FromString,
+                    response_serializer=service__math__solve__pb2.solve_response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'mathrender.GRPCMathRender', rpc_method_handlers)
+            'mathsolve.GRPCMathSolve', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('mathrender.GRPCMathRender', rpc_method_handlers)
+    server.add_registered_method_handlers('mathsolve.GRPCMathSolve', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class GRPCMathRender(object):
+class GRPCMathSolve(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def meta_data_render(request,
+    def meta_data_solve(request,
             target,
             options=(),
             channel_credentials=None,
@@ -99,9 +99,9 @@ class GRPCMathRender(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/mathrender.GRPCMathRender/meta_data_render',
-            service__math__render__pb2.meta_data_render_request.SerializeToString,
-            service__math__render__pb2.meta_data_render_response.FromString,
+            '/mathsolve.GRPCMathSolve/meta_data_solve',
+            service__math__solve__pb2.meta_data_solve_request.SerializeToString,
+            service__math__solve__pb2.meta_data_solve_response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -113,7 +113,7 @@ class GRPCMathRender(object):
             _registered_method=True)
 
     @staticmethod
-    def render_latex(request,
+    def solve(request,
             target,
             options=(),
             channel_credentials=None,
@@ -126,9 +126,9 @@ class GRPCMathRender(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/mathrender.GRPCMathRender/render_latex',
-            service__math__render__pb2.render_latex_request.SerializeToString,
-            service__math__render__pb2.render_latex_response.FromString,
+            '/mathsolve.GRPCMathSolve/solve',
+            service__math__solve__pb2.solve_request.SerializeToString,
+            service__math__solve__pb2.solve_response.FromString,
             options,
             channel_credentials,
             insecure,
