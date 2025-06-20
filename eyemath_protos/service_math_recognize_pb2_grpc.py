@@ -49,11 +49,6 @@ class GRPCMathRecognizeStub(object):
                 request_serializer=service__math__recognize__pb2.normalize_for_sympy_request.SerializeToString,
                 response_deserializer=service__math__recognize__pb2.normalize_for_sympy_response.FromString,
                 _registered_method=True)
-        self.render_latex = channel.unary_unary(
-                '/mathrecognize.GRPCMathRecognize/render_latex',
-                request_serializer=service__math__recognize__pb2.render_latex_request.SerializeToString,
-                response_deserializer=service__math__recognize__pb2.render_latex_response.FromString,
-                _registered_method=True)
 
 
 class GRPCMathRecognizeServicer(object):
@@ -77,12 +72,6 @@ class GRPCMathRecognizeServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def render_latex(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_GRPCMathRecognizeServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -100,11 +89,6 @@ def add_GRPCMathRecognizeServicer_to_server(servicer, server):
                     servicer.normalize_for_sympy,
                     request_deserializer=service__math__recognize__pb2.normalize_for_sympy_request.FromString,
                     response_serializer=service__math__recognize__pb2.normalize_for_sympy_response.SerializeToString,
-            ),
-            'render_latex': grpc.unary_unary_rpc_method_handler(
-                    servicer.render_latex,
-                    request_deserializer=service__math__recognize__pb2.render_latex_request.FromString,
-                    response_serializer=service__math__recognize__pb2.render_latex_response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -188,33 +172,6 @@ class GRPCMathRecognize(object):
             '/mathrecognize.GRPCMathRecognize/normalize_for_sympy',
             service__math__recognize__pb2.normalize_for_sympy_request.SerializeToString,
             service__math__recognize__pb2.normalize_for_sympy_response.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def render_latex(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/mathrecognize.GRPCMathRecognize/render_latex',
-            service__math__recognize__pb2.render_latex_request.SerializeToString,
-            service__math__recognize__pb2.render_latex_response.FromString,
             options,
             channel_credentials,
             insecure,

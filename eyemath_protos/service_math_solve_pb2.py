@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18service_math_solve.proto\x12\tmathsolve\"\x19\n\x17meta_data_solve_request\"9\n\x18meta_data_solve_response\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\"g\n\rsolve_request\x12\x18\n\x10latex_expression\x18\x01 \x01(\t\x12\x1a\n\x12show_solving_steps\x18\x02 \x01(\x08\x12 \n\x18render_latex_expressions\x18\x03 \x01(\x08\"8\n\x0esolve_response\x12\x0f\n\x07results\x18\x01 \x03(\t\x12\x15\n\rsolving_steps\x18\x02 \x03(\t2\xa9\x01\n\rGRPCMathSolve\x12Z\n\x0fmeta_data_solve\x12\".mathsolve.meta_data_solve_request\x1a#.mathsolve.meta_data_solve_response\x12<\n\x05solve\x12\x18.mathsolve.solve_request\x1a\x19.mathsolve.solve_responseB:Z8github.com/dagahan/EyeMath_protos/go/mathsolve;mathsolveb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18service_math_solve.proto\x12\tmathsolve\"\x19\n\x17meta_data_solve_request\"9\n\x18meta_data_solve_response\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\"g\n\rsolve_request\x12\x18\n\x10latex_expression\x18\x01 \x01(\t\x12\x1a\n\x12show_solving_steps\x18\x02 \x01(\x08\x12 \n\x18render_latex_expressions\x18\x03 \x01(\x08\"I\n\x0esolve_response\x12\x0f\n\x07results\x18\x01 \x03(\t\x12\x0f\n\x07renders\x18\x02 \x03(\t\x12\x15\n\rsolving_steps\x18\x03 \x03(\t2\xa9\x01\n\rGRPCMathSolve\x12Z\n\x0fmeta_data_solve\x12\".mathsolve.meta_data_solve_request\x1a#.mathsolve.meta_data_solve_response\x12<\n\x05solve\x12\x18.mathsolve.solve_request\x1a\x19.mathsolve.solve_responseB:Z8github.com/dagahan/EyeMath_protos/go/mathsolve;mathsolveb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -39,7 +39,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_SOLVE_REQUEST']._serialized_start=125
   _globals['_SOLVE_REQUEST']._serialized_end=228
   _globals['_SOLVE_RESPONSE']._serialized_start=230
-  _globals['_SOLVE_RESPONSE']._serialized_end=286
-  _globals['_GRPCMATHSOLVE']._serialized_start=289
-  _globals['_GRPCMATHSOLVE']._serialized_end=458
+  _globals['_SOLVE_RESPONSE']._serialized_end=303
+  _globals['_GRPCMATHSOLVE']._serialized_start=306
+  _globals['_GRPCMATHSOLVE']._serialized_end=475
 # @@protoc_insertion_point(module_scope)
