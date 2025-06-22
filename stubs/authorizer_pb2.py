@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10\x61uthorizer.proto\x12\nauthorizer\"\x1e\n\x1cmeta_data_authorizer_request\">\n\x1dmeta_data_authorizer_response\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t2}\n\x0eGRPCAuthorizer\x12k\n\x14meta_data_authorizer\x12(.authorizer.meta_data_authorizer_request\x1a).authorizer.meta_data_authorizer_responseB<Z:github.com/dagahan/EyeMath_protos/go/authorizer;authorizerb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10\x61uthorizer.proto\x12\nauthorizer\"\x1e\n\x1cmeta_data_authorizer_request\">\n\x1dmeta_data_authorizer_response\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\"F\n\x10register_request\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\x0c\x12\r\n\x05\x65mail\x18\x03 \x01(\t\"8\n\x11register_response\x12\x0e\n\x06result\x18\x01 \x01(\x08\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t2\xc6\x01\n\x0eGRPCAuthorizer\x12k\n\x14meta_data_authorizer\x12(.authorizer.meta_data_authorizer_request\x1a).authorizer.meta_data_authorizer_response\x12G\n\x08register\x12\x1c.authorizer.register_request\x1a\x1d.authorizer.register_responseB<Z:github.com/dagahan/EyeMath_protos/go/authorizer;authorizerb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,6 +36,10 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_META_DATA_AUTHORIZER_REQUEST']._serialized_end=62
   _globals['_META_DATA_AUTHORIZER_RESPONSE']._serialized_start=64
   _globals['_META_DATA_AUTHORIZER_RESPONSE']._serialized_end=126
-  _globals['_GRPCAUTHORIZER']._serialized_start=128
-  _globals['_GRPCAUTHORIZER']._serialized_end=253
+  _globals['_REGISTER_REQUEST']._serialized_start=128
+  _globals['_REGISTER_REQUEST']._serialized_end=198
+  _globals['_REGISTER_RESPONSE']._serialized_start=200
+  _globals['_REGISTER_RESPONSE']._serialized_end=256
+  _globals['_GRPCAUTHORIZER']._serialized_start=259
+  _globals['_GRPCAUTHORIZER']._serialized_end=457
 # @@protoc_insertion_point(module_scope)

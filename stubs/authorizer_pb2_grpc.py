@@ -39,12 +39,23 @@ class GRPCAuthorizerStub(object):
                 request_serializer=authorizer__pb2.meta_data_authorizer_request.SerializeToString,
                 response_deserializer=authorizer__pb2.meta_data_authorizer_response.FromString,
                 _registered_method=True)
+        self.register = channel.unary_unary(
+                '/authorizer.GRPCAuthorizer/register',
+                request_serializer=authorizer__pb2.register_request.SerializeToString,
+                response_deserializer=authorizer__pb2.register_response.FromString,
+                _registered_method=True)
 
 
 class GRPCAuthorizerServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def meta_data_authorizer(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def register(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -57,6 +68,11 @@ def add_GRPCAuthorizerServicer_to_server(servicer, server):
                     servicer.meta_data_authorizer,
                     request_deserializer=authorizer__pb2.meta_data_authorizer_request.FromString,
                     response_serializer=authorizer__pb2.meta_data_authorizer_response.SerializeToString,
+            ),
+            'register': grpc.unary_unary_rpc_method_handler(
+                    servicer.register,
+                    request_deserializer=authorizer__pb2.register_request.FromString,
+                    response_serializer=authorizer__pb2.register_response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -86,6 +102,33 @@ class GRPCAuthorizer(object):
             '/authorizer.GRPCAuthorizer/meta_data_authorizer',
             authorizer__pb2.meta_data_authorizer_request.SerializeToString,
             authorizer__pb2.meta_data_authorizer_response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def register(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/authorizer.GRPCAuthorizer/register',
+            authorizer__pb2.register_request.SerializeToString,
+            authorizer__pb2.register_response.FromString,
             options,
             channel_credentials,
             insecure,
