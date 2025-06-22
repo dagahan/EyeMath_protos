@@ -1,0 +1,15 @@
+pyproject.toml
+eyemath_protos.egg-info/PKG-INFO
+eyemath_protos.egg-info/SOURCES.txt
+eyemath_protos.egg-info/dependency_links.txt
+eyemath_protos.egg-info/top_level.txt
+stubs/__init__.py
+stubs/gateway_pb2.py
+stubs/gateway_pb2_grpc.py
+stubs/methods.py
+stubs/service_math_recognize_pb2.py
+stubs/service_math_recognize_pb2_grpc.py
+stubs/service_math_render_pb2.py
+stubs/service_math_render_pb2_grpc.py
+stubs/service_math_solve_pb2.py
+stubs/service_math_solve_pb2_grpc.py
