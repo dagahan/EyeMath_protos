@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10\x61uthorizer.proto\x12\nauthorizer\"\x1e\n\x1cmeta_data_authorizer_request\">\n\x1dmeta_data_authorizer_response\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\"F\n\x10register_request\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\"8\n\x11register_response\x12\x0e\n\x06result\x18\x01 \x01(\x08\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\"8\n\x11\x61uthorize_request\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"3\n\x12\x61uthorize_response\x12\x0e\n\x06result\x18\x01 \x01(\x08\x12\r\n\x05token\x18\x02 \x01(\t\"&\n\x15\x61uthorize_jwt_request\x12\r\n\x05token\x18\x01 \x01(\t\"(\n\x16\x61uthorize_jwt_response\x12\x0e\n\x06result\x18\x01 \x01(\x08\x32\xea\x02\n\x0eGRPCAuthorizer\x12k\n\x14meta_data_authorizer\x12(.authorizer.meta_data_authorizer_request\x1a).authorizer.meta_data_authorizer_response\x12G\n\x08register\x12\x1c.authorizer.register_request\x1a\x1d.authorizer.register_response\x12J\n\tauthorize\x12\x1d.authorizer.authorize_request\x1a\x1e.authorizer.authorize_response\x12V\n\rauthorize_jwt\x12!.authorizer.authorize_jwt_request\x1a\".authorizer.authorize_jwt_responseB<Z:github.com/dagahan/EyeMath_protos/go/authorizer;authorizerb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10\x61uthorizer.proto\x12\nauthorizer\"\x1e\n\x1cmeta_data_authorizer_request\">\n\x1dmeta_data_authorizer_response\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\"F\n\x10register_request\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\"8\n\x11register_response\x12\x0e\n\x06result\x18\x01 \x01(\x08\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\"8\n\x11\x61uthorize_request\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"3\n\x12\x61uthorize_response\x12\x0e\n\x06result\x18\x01 \x01(\x08\x12\r\n\x05token\x18\x02 \x01(\t\")\n\x18token_validation_request\x12\r\n\x05token\x18\x01 \x01(\t\"+\n\x19token_validation_response\x12\x0e\n\x06result\x18\x01 \x01(\x08\x32\xf3\x02\n\x0eGRPCAuthorizer\x12k\n\x14meta_data_authorizer\x12(.authorizer.meta_data_authorizer_request\x1a).authorizer.meta_data_authorizer_response\x12G\n\x08register\x12\x1c.authorizer.register_request\x1a\x1d.authorizer.register_response\x12J\n\tauthorize\x12\x1d.authorizer.authorize_request\x1a\x1e.authorizer.authorize_response\x12_\n\x10token_validation\x12$.authorizer.token_validation_request\x1a%.authorizer.token_validation_responseB<Z:github.com/dagahan/EyeMath_protos/go/authorizer;authorizerb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -44,10 +44,10 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_AUTHORIZE_REQUEST']._serialized_end=314
   _globals['_AUTHORIZE_RESPONSE']._serialized_start=316
   _globals['_AUTHORIZE_RESPONSE']._serialized_end=367
-  _globals['_AUTHORIZE_JWT_REQUEST']._serialized_start=369
-  _globals['_AUTHORIZE_JWT_REQUEST']._serialized_end=407
-  _globals['_AUTHORIZE_JWT_RESPONSE']._serialized_start=409
-  _globals['_AUTHORIZE_JWT_RESPONSE']._serialized_end=449
-  _globals['_GRPCAUTHORIZER']._serialized_start=452
-  _globals['_GRPCAUTHORIZER']._serialized_end=814
+  _globals['_TOKEN_VALIDATION_REQUEST']._serialized_start=369
+  _globals['_TOKEN_VALIDATION_REQUEST']._serialized_end=410
+  _globals['_TOKEN_VALIDATION_RESPONSE']._serialized_start=412
+  _globals['_TOKEN_VALIDATION_RESPONSE']._serialized_end=455
+  _globals['_GRPCAUTHORIZER']._serialized_start=458
+  _globals['_GRPCAUTHORIZER']._serialized_end=829
 # @@protoc_insertion_point(module_scope)
