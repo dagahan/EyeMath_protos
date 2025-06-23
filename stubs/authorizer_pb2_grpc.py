@@ -49,10 +49,10 @@ class GRPCAuthorizerStub(object):
                 request_serializer=authorizer__pb2.authorize_request.SerializeToString,
                 response_deserializer=authorizer__pb2.authorize_response.FromString,
                 _registered_method=True)
-        self.token_validation = channel.unary_unary(
-                '/authorizer.GRPCAuthorizer/token_validation',
-                request_serializer=authorizer__pb2.token_validation_request.SerializeToString,
-                response_deserializer=authorizer__pb2.token_validation_response.FromString,
+        self.validate_jwt = channel.unary_unary(
+                '/authorizer.GRPCAuthorizer/validate_jwt',
+                request_serializer=authorizer__pb2.validate_jwt_request.SerializeToString,
+                response_deserializer=authorizer__pb2.validate_jwt_response.FromString,
                 _registered_method=True)
 
 
@@ -77,7 +77,7 @@ class GRPCAuthorizerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def token_validation(self, request, context):
+    def validate_jwt(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -101,10 +101,10 @@ def add_GRPCAuthorizerServicer_to_server(servicer, server):
                     request_deserializer=authorizer__pb2.authorize_request.FromString,
                     response_serializer=authorizer__pb2.authorize_response.SerializeToString,
             ),
-            'token_validation': grpc.unary_unary_rpc_method_handler(
-                    servicer.token_validation,
-                    request_deserializer=authorizer__pb2.token_validation_request.FromString,
-                    response_serializer=authorizer__pb2.token_validation_response.SerializeToString,
+            'validate_jwt': grpc.unary_unary_rpc_method_handler(
+                    servicer.validate_jwt,
+                    request_deserializer=authorizer__pb2.validate_jwt_request.FromString,
+                    response_serializer=authorizer__pb2.validate_jwt_response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -199,7 +199,7 @@ class GRPCAuthorizer(object):
             _registered_method=True)
 
     @staticmethod
-    def token_validation(request,
+    def validate_jwt(request,
             target,
             options=(),
             channel_credentials=None,
@@ -212,9 +212,9 @@ class GRPCAuthorizer(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/authorizer.GRPCAuthorizer/token_validation',
-            authorizer__pb2.token_validation_request.SerializeToString,
-            authorizer__pb2.token_validation_response.FromString,
+            '/authorizer.GRPCAuthorizer/validate_jwt',
+            authorizer__pb2.validate_jwt_request.SerializeToString,
+            authorizer__pb2.validate_jwt_response.FromString,
             options,
             channel_credentials,
             insecure,
