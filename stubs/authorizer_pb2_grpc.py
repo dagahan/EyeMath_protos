@@ -49,6 +49,11 @@ class GRPCAuthorizerStub(object):
                 request_serializer=authorizer__pb2.authorize_request.SerializeToString,
                 response_deserializer=authorizer__pb2.authorize_response.FromString,
                 _registered_method=True)
+        self.unauthorize = channel.unary_unary(
+                '/authorizer.GRPCAuthorizer/unauthorize',
+                request_serializer=authorizer__pb2.unauthorize_request.SerializeToString,
+                response_deserializer=authorizer__pb2.unauthorize_response.FromString,
+                _registered_method=True)
         self.validate_jwt = channel.unary_unary(
                 '/authorizer.GRPCAuthorizer/validate_jwt',
                 request_serializer=authorizer__pb2.validate_jwt_request.SerializeToString,
@@ -77,6 +82,12 @@ class GRPCAuthorizerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def unauthorize(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def validate_jwt(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -100,6 +111,11 @@ def add_GRPCAuthorizerServicer_to_server(servicer, server):
                     servicer.authorize,
                     request_deserializer=authorizer__pb2.authorize_request.FromString,
                     response_serializer=authorizer__pb2.authorize_response.SerializeToString,
+            ),
+            'unauthorize': grpc.unary_unary_rpc_method_handler(
+                    servicer.unauthorize,
+                    request_deserializer=authorizer__pb2.unauthorize_request.FromString,
+                    response_serializer=authorizer__pb2.unauthorize_response.SerializeToString,
             ),
             'validate_jwt': grpc.unary_unary_rpc_method_handler(
                     servicer.validate_jwt,
@@ -188,6 +204,33 @@ class GRPCAuthorizer(object):
             '/authorizer.GRPCAuthorizer/authorize',
             authorizer__pb2.authorize_request.SerializeToString,
             authorizer__pb2.authorize_response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def unauthorize(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/authorizer.GRPCAuthorizer/unauthorize',
+            authorizer__pb2.unauthorize_request.SerializeToString,
+            authorizer__pb2.unauthorize_response.FromString,
             options,
             channel_credentials,
             insecure,
